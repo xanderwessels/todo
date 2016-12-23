@@ -1,0 +1,8 @@
+<html>
+    <h1>MY TODO LIST</h1>
+    <p>is this thing on?</p>
+    {% for todo in todos %}
+        <p><strong>{{ todo.title}} </strong> {{ todo.text}}</p>
+        <p><a href="">{{todo.title}}</a></p>
+    {% endfor %}
+</html>
