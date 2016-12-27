@@ -1,8 +1,13 @@
-<html>
-    <h1>MY TODO LIST</h1>
-    <p>is this thing on?</p>
-    {% for todo in todos %}
-        <p><strong>{{ todo.title}} </strong> {{ todo.text}}</p>
-        <p><a href="">{{todo.title}}</a></p>
+{% extends 'list/index.html'%}
+
+{% block item %}
+    {% for todo in todos%}
+        <div class="card card-block">
+            <h4 class="card-title">{{todo.title}}</h4>
+            <p class="card-text">{{todo.text}}</p>
+            <p class="card-text">
+                <small class="text-muted">created: {{todo.deadline_date}}</small>
+            </p>
+        </div>
     {% endfor %}
-</html>
+{% endblock item%}
