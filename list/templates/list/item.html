@@ -1,0 +1,29 @@
+{% extends 'list/index.html'%}
+{% load staticfiles %}
+
+{% block item %}
+    {% for item in items%}
+        {% if item.archived == False%}
+        <div class="card" style="background-color:{{item.color}}">
+            {% if item.image %}
+                <img class="card-img-top img-fluid" src="{{item.image}}" alt="Card image cap">
+            {% endif%}
+           <div class="card-block">
+           
+           {% if item.title%}
+            <h4 class="card-title">{{item.title}}</h4>
+            {% endif %}
+            
+            {%if item.text%}
+            <p class="card-text">{{item.text}}</p>
+            {% endif %}
+            <footer>
+                <a href="{% url 'archive' id=item.pk%}"><img  title="Archive" src="{% static 'clipboard.svg' %}" width="15" height="15" class="d-inline-block align-right" alt=""></a>
+                <a href="{% url 'edit' id=item.pk%}"><img  title="Edit" src="{% static 'edit-1.svg' %}" width="15" height="15" class="d-inline-block align-right" alt=""></a>
+                <small class="text-muted">created: {{item.created_date}}</small>
+            </footer>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endblock item%}
