@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="af51aa00-8d35-4681-995f-6daf7da661f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/settings.py" afterPath="$PROJECT_DIR$/todolist/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/wsgi.py" afterPath="$PROJECT_DIR$/todolist/wsgi.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -563,7 +560,14 @@
       <option name="project" value="LOCAL" />
       <updated>1483477947401</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="installed whitenoise">
+      <created>1483478305785</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1483478305785</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -602,7 +606,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test webstorm" />
     <MESSAGE value="added adding of items and deleting and editing" />
-    <option name="LAST_COMMIT_MESSAGE" value="added adding of items and deleting and editing" />
+    <MESSAGE value="installed whitenoise" />
+    <option name="LAST_COMMIT_MESSAGE" value="installed whitenoise" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
