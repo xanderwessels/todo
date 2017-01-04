@@ -3,7 +3,6 @@ from django.utils import timezone
 
 class Item(models.Model):
     author = models.ForeignKey('auth.User', null=True)
-    
     COLORS = (
         ('rgb(255, 138, 128)','red'),
         ('rgb(128, 216, 255)','blue'),
@@ -14,7 +13,6 @@ class Item(models.Model):
         ('rgb(167, 255, 235)','teal'),
     )
     color = models.CharField(max_length=20,choices=COLORS)
-
     title = models.CharField(max_length=200, blank=True, null=True)
     text = models.TextField(blank=True,null=True)
     image = models.URLField(blank=True,null=True)
@@ -27,7 +25,11 @@ class Item(models.Model):
         self.archived = True
         self.save()
 
+    def dearchive(self):
+        self.archived_date = None
+        self.archived = False
+        self.save()
+
     def __str__(self):
         return self.title
 
-    

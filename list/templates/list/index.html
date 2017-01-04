@@ -8,7 +8,6 @@
 
     <title>What to do?</title>
 
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
           integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
     <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
@@ -31,20 +30,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'new' %}">Add</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'archived' %}">Archived</a>
+            </li>
         </ul>
     </div>
 </header>
 
-<div class="container">
+<div class="container" id="cont">
     {% block form %}
     {% endblock %}
-</div>
-
-<div class="container" id="cont">
-    <div class="card-columns">
-        {% block item %}
-        {% endblock %}
-    </div>
+    {% block item %}
+    {% endblock %}
 </div>
 
 </body>

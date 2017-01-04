@@ -9,9 +9,12 @@ from django.core.urlresolvers import reverse
 
 # Create your views here.
 def index(request):
-    items = Item.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
+    items = Item.objects.filter(archived=False).order_by('created_date')
     return render(request, 'list/item.html', {'items': items})
 
+def archived(request):
+    items = Item.objects.filter(archived=True).order_by('created_date')
+    return render(request, 'list/item.html', {'items': items})
 
 def new(request):
     form = ItemForm(request.POST or None)
@@ -29,7 +32,12 @@ def new(request):
 
 def archive(request, id):
     item = get_object_or_404(Item, pk=id)
-    item.archive()
+
+    if item.archived:
+        item.dearchive()
+    else:
+        item.archive()
+
     return HttpResponseRedirect(reverse('index'))
 
 
@@ -44,3 +52,13 @@ def edit(request, id):
         "formset": form
     }
     return render(request, "list/edit.html", context)
+
+def delete(request, id):
+    item = get_object_or_404(Item, pk=id)
+
+    if item.archived:
+        item.delete()
+        return HttpResponseRedirect(reverse('archived'))
+    else:
+        item.delete()
+        return HttpResponseRedirect(reverse('index'))

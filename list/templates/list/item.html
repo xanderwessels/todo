@@ -2,28 +2,51 @@
 {% load staticfiles %}
 
 {% block item %}
+{% if not items%}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">There are no items here!</h1>
+        {% if request.path == "/archived/" %}
+            <p class="lead">To put items here, click on the little archive icon on an item</p>
+        {% else %}
+            <p class="lead">Create some with the add button above</p>
+        {% endif %}
+    </div>
+</div>
+{% else%}
+<div class="card-columns">
     {% for item in items%}
-        {% if item.archived == False%}
-        <div class="card" style="background-color:{{item.color}}">
-            {% if item.image %}
-                <img class="card-img-top img-fluid" src="{{item.image}}" alt="Card image cap">
-            {% endif%}
-           <div class="card-block">
-           
-           {% if item.title%}
+    <div class="card" style="background-color:{{item.color}}">
+        {% if item.image %}
+        <img class="card-img-top img-fluid" src="{{item.image}}" alt="Card image cap">
+        {% endif%}
+        <div class="card-block">
+
+            {% if item.title%}
             <h4 class="card-title">{{item.title}}</h4>
             {% endif %}
-            
+
             {%if item.text%}
             <p class="card-text">{{item.text}}</p>
             {% endif %}
             <footer>
-                <a href="{% url 'archive' id=item.pk%}"><img  title="Archive" src="{% static 'clipboard.svg' %}" width="15" height="15" class="d-inline-block align-right" alt=""></a>
-                <a href="{% url 'edit' id=item.pk%}"><img  title="Edit" src="{% static 'edit-1.svg' %}" width="15" height="15" class="d-inline-block align-right" alt=""></a>
+                <a href="{% url 'archive' id=item.pk%}"><img itle="Archive" src="{% static 'clipboard.svg' %}"
+                                                             width="15" height="15" class="d-inline-block align-right"
+                                                             alt=""></a>
+                <a href="{% url 'edit' id=item.pk%}"><img title="Edit" src="{% static 'edit-1.svg' %}" width="15"
+                                                          height="15" class="d-inline-block align-right" alt=""></a>
+                <a href="{% url 'delete' id=item.pk%}"><img title="Delete" src="{% static 'trash-1.svg' %}" width="15"
+                                                            height="15" class="d-inline-block align-right" alt=""></a>
+                {% if item.archived%}
+                <a href="{% url 'archive' id=item.pk%}"><img title="Dearchive" src="{% static 'clipboard-2.svg' %}"
+                                                             width="15" height="15" class="d-inline-block align-right"
+                                                             alt=""></a>
+                {% endif %}
                 <small class="text-muted">created: {{item.created_date}}</small>
             </footer>
-            </div>
         </div>
-        {% endif %}
+    </div>
     {% endfor %}
+</div>
+{% endif %}
 {% endblock item%}
