@@ -23,11 +23,9 @@ def new(request):
         instance = form.save(commit=False)
         instance.save()
         return HttpResponseRedirect(reverse('index'))
+    else:
+        return render(request, "list/new.html", {"formset": form, 'all_okay': False})
 
-    context = {
-        "formset": form
-    }
-    return render(request, "list/new.html", context)
 
 
 def archive(request, id):

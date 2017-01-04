@@ -1,6 +1,11 @@
 {% extends 'list/index.html'%}
 
 {% block form %}
+    {% if not all_okay %}
+        <div class="alert alert-danger" role="alert">
+                <strong>Please</strong> fill in at least one of the 3 textfields.
+        </div>
+    {% endif %}
     <form method='post' action="{% url 'new'%}">
                 {% csrf_token %}
         <div class="form-group row">
