@@ -27,7 +27,7 @@
             {% endif %}
 
             {%if item.text%}
-            <p class="card-text">{{item.text}}</p>
+            <p class="card-text">{{item.text|linebreaks}}</p>
             {% endif %}
             <footer>
                 <a href="{% url 'archive' id=item.pk%}"><img itle="Archive" src="{% static 'clipboard.svg' %}"
