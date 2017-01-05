@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'todolist.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.envirmon.get('DATABASE_URL')
+        default=os.environ.get('DATABASE_URL')
     )
 }
 
