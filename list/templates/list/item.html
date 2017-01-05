@@ -30,9 +30,11 @@
             <p class="card-text">{{item.text|linebreaks}}</p>
             {% endif %}
             <footer>
+                {% if not item.archived%}
                 <a href="{% url 'archive' id=item.pk%}"><img itle="Archive" src="{% static 'clipboard.svg' %}"
                                                              width="15" height="15" class="d-inline-block align-right"
                                                              alt=""></a>
+                {% endif %}
                 <a href="{% url 'edit' id=item.pk%}"><img title="Edit" src="{% static 'edit-1.svg' %}" width="15"
                                                           height="15" class="d-inline-block align-right" alt=""></a>
                 <a href="{% url 'delete' id=item.pk%}"><img title="Delete" src="{% static 'trash-1.svg' %}" width="15"
