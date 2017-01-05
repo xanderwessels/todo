@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'list',
 ]
 
@@ -78,12 +77,22 @@ WSGI_APPLICATION = 'todolist.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
-    )
-}
+#DATABASES = {
+#    'default': dj_database_url.config(
+#        default=os.envirmon.get('DATABASE_URL')
+#    )
+#}
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'df1eehiq999inm',
+        'USER': 'xiczlrupcbvlle',
+        'PASSWORD': '2b8c051caa19d4223e235b25cb418787dea4acfe3c1984d31f6beda1dc0540ee',
+        'HOST': 'ec2-46-137-117-43.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',  # Set to empty string for default.
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
